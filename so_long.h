@@ -6,14 +6,14 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:47:55 by melee             #+#    #+#             */
-/*   Updated: 2023/06/08 10:26:18 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/08 18:43:22 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# define WIDTH 300
-# define LENGTH 600
+# define WIDTH 1000
+# define HEIGHT 500
 # define KEYPRESS 2
 # define DESTROY 17
 
