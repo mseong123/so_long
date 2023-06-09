@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   format_u.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/05/09 08:04:55 by melee             #+#    #+#             */
+/*   Updated: 2023/05/09 10:13:34 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	format_u(va_list ptr)
 {
-	t_data data;
-	
-	if (argc == 2)
-	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
-	}
-	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+	unsigned int	u;
+	char			*u_decimal;
+	int				count;
+
+	u = va_arg(ptr, unsigned int);
+	u_decimal = ft_itoa_base(u, "0123456789");
+	count = ft_strlen(u_decimal);
+	ft_putstr_fd(u_decimal, FD);
+	free(u_decimal);
+	return (count);
 }

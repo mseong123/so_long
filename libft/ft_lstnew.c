@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/05/03 13:31:11 by melee             #+#    #+#             */
+/*   Updated: 2023/05/03 15:31:46 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+t_list	*ft_lstnew(void *content)
 {
-	t_data data;
-	
-	if (argc == 2)
-	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
-	}
-	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+	t_list	*node;
+
+	node = (t_list *)malloc(sizeof(node));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }

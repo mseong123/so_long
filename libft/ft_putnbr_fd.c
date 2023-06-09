@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/05/03 11:33:40 by melee             #+#    #+#             */
+/*   Updated: 2023/05/03 11:51:07 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_data data;
-	
-	if (argc == 2)
+	if (n == -2147483648)
 	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
+	if (n < 0)
+	{
+		n = -n;
+		ft_putchar_fd('-', fd);
+	}
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
 	}
 	else
 	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
+		ft_putchar_fd(n + 48, fd);
 	}
 }

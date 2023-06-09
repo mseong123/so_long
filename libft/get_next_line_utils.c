@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/05/10 12:49:26 by melee             #+#    #+#             */
+/*   Updated: 2023/05/12 11:33:14 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "get_next_line.h"
 
-int	main(int argc, char **argv)
+int	check_endline_index(char *str)
 {
-	t_data data;
-	
-	if (argc == 2)
+	int	i;
+
+	i = 0;
+	while (str[i])
 	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
+		if (str[i] == '\n')
+			return (i);
+		i++;
 	}
-	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+	return (-1);
 }

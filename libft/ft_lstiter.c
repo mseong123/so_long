@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   event_handlers.c                                   :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 09:34:32 by melee             #+#    #+#             */
-/*   Updated: 2023/06/08 12:37:12 by melee            ###   ########.fr       */
+/*   Created: 2023/05/04 15:19:59 by melee             #+#    #+#             */
+/*   Updated: 2023/05/04 15:31:31 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include <stdio.h>
+#include "libft.h"
 
-int	handle_key(int keysym, t_data *data)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (keysym == 53)
+	t_list	*node;
+
+	if (lst && f)
 	{
-		mlx_destroy_window(data->mlx_ptr, data->mlx_win);
-		data->mlx_win = NULL;
-		printf("%p\n", data->mlx_win);
-		free_data(data);
-		exit(EXIT_SUCCESS);
+		node = lst;
+		while (node)
+		{
+			f(node->content);
+			node = node->next;
+		}
 	}
-	return (0);
-}
-
-int	handle_destroy(t_data *data)
-{
-	free_data(data);
-	exit(EXIT_SUCCESS);
-	return (0);
 }

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/05/03 16:24:07 by melee             #+#    #+#             */
+/*   Updated: 2023/05/03 18:54:08 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_lstsize(t_list *lst)
 {
-	t_data data;
-	
-	if (argc == 2)
+	int	i;
+
+	i = 0;
+	while (lst)
 	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
+		lst = lst->next;
+		i++;
 	}
-	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+	return (i);
 }

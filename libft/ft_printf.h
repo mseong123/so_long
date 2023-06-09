@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/05/06 12:00:40 by melee             #+#    #+#             */
+/*   Updated: 2023/05/09 10:22:52 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# define FD 1
 
-int	main(int argc, char **argv)
-{
-	t_data data;
-	
-	if (argc == 2)
-	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
-	}
-	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
-}
+# include "libft.h"
+# include "stdarg.h"
+
+int		ft_printf(const char *str, ...);
+char	*ft_itoa_base(unsigned long u, char *base);
+int		format_c(va_list ptr);
+int		format_s(va_list ptr);
+int		format_p(va_list ptr);
+int		format_d_i(va_list ptr);
+int		format_u(va_list ptr);
+int		format_x(va_list ptr);
+int		format_upper_x(va_list ptr);
+
+#endif

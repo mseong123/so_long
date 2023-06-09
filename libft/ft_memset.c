@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/04/28 14:04:59 by melee             #+#    #+#             */
+/*   Updated: 2023/04/28 15:20:38 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_data data;
-	
-	if (argc == 2)
+	size_t			i;
+	char			*str;
+	unsigned char	d;
+
+	i = 0;
+	str = (char *)b;
+	d = (unsigned char)c;
+	while (i < len)
 	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
+		str[i] = d;
+		i++;
 	}
-	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+	return (b);
 }
+/*
+#include <string.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	char str[]="hello";
+	//ft_memset(str, 338, sizeof(int));
+	memset(str, 'B', sizeof(int));
+	printf("%s",str);
+	return (0);
+}
+*/

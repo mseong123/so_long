@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   format_s.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/05/08 14:11:31 by melee             #+#    #+#             */
+/*   Updated: 2023/05/08 16:44:01 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	format_s(va_list ptr)
 {
-	t_data data;
-	
-	if (argc == 2)
+	char	*str;
+
+	str = va_arg(ptr, char *);
+	if (!str)
 	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
+		ft_putstr_fd("(null)", FD);
+		return (6);
 	}
-	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+	ft_putstr_fd(str, FD);
+	return (ft_strlen(str));
 }

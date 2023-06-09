@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/04/28 09:33:53 by melee             #+#    #+#             */
+/*   Updated: 2023/04/28 09:39:41 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-int	main(int argc, char **argv)
+int	ft_toupper(int c)
 {
-	t_data data;
-	
-	if (argc == 2)
-	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
-	}
+	if (c >= 97 && c <= 122)
+		return (c - 32);
 	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+		return (c);
 }
+/*
+#include <ctype.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	int c = '[';
+
+	printf("original %d\n",toupper(c));
+	printf("ft %d",ft_toupper(c));
+	return(0);
+}
+*/

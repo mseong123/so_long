@@ -1,4 +1,4 @@
-SRCS_NAME = so_long free event_handlers 
+SRCS_NAME = so_long free check_map check_map_utils
 
 SRCS = $(SRCS_NAME:=.c)
 
@@ -11,15 +11,18 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) -I ./minilibx_opengl_20191021 $<
+	$(CC) -c $(CFLAGS) -I ./minilibx_opengl_20191021 -I ./libft $<
 
 $(NAME): $(OBJECTS)
-	cc $(OBJECTS) -o $(NAME) -g -L ./minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
+	make bonus -C ./libft
+	cc -g $(OBJECTS) -o $(NAME) -g -L ./minilibx_opengl_20191021 -lmlx -L ./libft -lft -framework OpenGL -framework AppKit
 
 clean:
+	make clean -C ./libft
 	rm -f $(OBJECTS)
 
 fclean: clean
+	make fclean -C ./libft
 	rm -f $(NAME)
 
 re: fclean all

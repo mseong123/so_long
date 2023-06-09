@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/04/28 09:24:41 by melee             #+#    #+#             */
+/*   Updated: 2023/04/28 09:29:11 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-int	main(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	t_data data;
-	
-	if (argc == 2)
-	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
-	}
+	if (c >= 48 && c <= 57)
+		return (1);
 	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+		return (0);
 }
+/*
+#include <ctype.h>
+#include <stdio.h>
+
+int	main(void)
+{
+	int c = ':';
+
+	printf("original %d\n",isdigit(c));
+	printf("ft %d",ft_isdigit(c));
+	return(0);
+}
+*/

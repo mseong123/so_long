@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   format_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/05/08 15:04:00 by melee             #+#    #+#             */
+/*   Updated: 2023/05/09 10:12:59 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "ft_printf.h"
 
-int	main(int argc, char **argv)
+int	format_p(va_list ptr)
 {
-	t_data data;
-	
-	if (argc == 2)
-	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
-	}
-	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+	unsigned long int	u;
+	char				*hexa;
+	int					count;				
+
+	u = va_arg(ptr, unsigned long int);
+	hexa = ft_itoa_base(u, "0123456789abcdef");
+	count = ft_strlen(hexa);
+	ft_putstr_fd("0x", FD);
+	ft_putstr_fd(hexa, FD);
+	free(hexa);
+	return (count + 2);
 }

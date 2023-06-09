@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/05/01 18:45:08 by melee             #+#    #+#             */
+/*   Updated: 2023/05/02 08:04:14 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+char	*ft_strdup(const char *s1)
 {
-	t_data data;
-	
-	if (argc == 2)
+	char	*str;
+	int		i;
+
+	i = 0;
+	str = malloc((ft_strlen(s1) * sizeof(char)) + 1);
+	if (!str)
+		return (NULL);
+	while (s1[i])
 	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
+		str[i] = s1[i];
+		i++;
 	}
-	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+	str[i] = '\0';
+	return (str);
 }

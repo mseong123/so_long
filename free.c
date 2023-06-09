@@ -6,14 +6,19 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:03:51 by melee             #+#    #+#             */
-/*   Updated: 2023/06/08 12:36:50 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/09 13:44:38 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_data(t_data *data)
+void	free_map(t_data *data)
 {
-	free(data->mlx_ptr);
-	free(data);
+	int i;
+
+	i = 0;
+	while (data->map[i])
+		free(data->map[i++]);
+	free(data->map);
 }
+

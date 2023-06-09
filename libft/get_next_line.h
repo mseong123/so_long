@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:47:55 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:52:09 by melee            ###   ########.fr       */
+/*   Created: 2023/05/10 09:49:25 by melee             #+#    #+#             */
+/*   Updated: 2023/05/12 11:32:26 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# define WIDTH 1000
-# define HEIGHT 500
-# define KEYPRESS 2
-# define DESTROY 17
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include "mlx.h"
-# include <stdlib.h>
-# include <stdio.h>
-# include "libft.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+
 # include <unistd.h>
-# include <fcntl.h>
+# include <stdlib.h>
+# include "libft.h"
 
-typedef struct	s_data
-{
-	void	*mlx_ptr;
-	void	*mlx_win;
-	char	**map;
-}		t_data;
-
-void	free_map(t_data *data);
-void	check_map(t_data *data, char **argv);
-int		check_rectangular(t_data *data);
-int		check_char(t_data *data);
+char	*get_next_line(int fd);
+int		check_endline_index(char *str);
 
 #endif

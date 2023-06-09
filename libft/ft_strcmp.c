@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Created: 2023/02/14 16:45:00 by melee             #+#    #+#             */
+/*   Updated: 2023/02/14 19:00:41 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+/*
+#include <stdio.h>
+*/
 
-int	main(int argc, char **argv)
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_data data;
-	
-	if (argc == 2)
+	int	i;
+
+	i = 0;
+	while (s1[i] == s2[i])
 	{
-		check_map(&data, argv);
-		return (EXIT_SUCCESS);
+		if (s1[i] == '\0')
+		{
+			return (0);
+		}
+		i++;
 	}
-	else
-	{
-		ft_putstr_fd("Error! Enter correct no. of parameters\n", 2);
-		return (EXIT_FAILURE);
-	}
+	return (s1[i] - s2[i]);
 }
+/*
+int	main(void)
+{
+	char	s1[] = "hello";
+	char	s2[] = "he llo";
+	int		n;
+
+	n = ft_strcmp(s1, s2);
+	printf("result = %d", n);
+	return (0);
+}
+*/
