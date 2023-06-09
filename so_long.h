@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:47:55 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:52:09 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/09 16:47:02 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,11 @@ void	free_map(t_data *data);
 void	check_map(t_data *data, char **argv);
 int		check_rectangular(t_data *data);
 int		check_char(t_data *data);
+int		check_min_row_column(t_data *data);
+int		check_wall(t_data *data);
+int		check_exit(t_data *data);
+int		check_start(t_data *data);
+int		check_collectible(t_data *data);
+
 
 #endif

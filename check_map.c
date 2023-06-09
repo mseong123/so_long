@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:42:29 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:55:15 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/09 16:48:32 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,38 @@ static void	check_suffix(char **argv)
 	}
 }
 
+static void check_map_conditions2(t_data *data)
+{
+	if (!check_exit(data))
+	{
+		ft_putstr_fd("Error\nMap must contain only one Exit(E).\n", 2);
+		free_map(data);
+		exit(EXIT_FAILURE);
+	}
+	if (!check_start(data))
+	{
+		ft_putstr_fd("Error\nMap must contain only one Starting Position(P).\n", 2);
+		free_map(data);
+		exit(EXIT_FAILURE);
+	}
+	if (!check_collectible(data))
+	{
+		ft_putstr_fd("Error\nMap must contain at least one Collectible(C).\n", 2);
+		free_map(data);
+		exit(EXIT_FAILURE);
+	}
+
+
+}
+
 static void check_map_conditions(t_data *data)
 {
+	if (!check_min_row_column(data))
+	{
+		ft_putstr_fd("Error\nMap needs a min of 5 rows and 5 columns\n", 2);
+		free_map(data);
+		exit(EXIT_FAILURE);
+	}
 	if (!check_rectangular(data))
 	{
 		ft_putstr_fd("Error\nMap is not rectangular.\n", 2);
@@ -34,8 +64,14 @@ static void check_map_conditions(t_data *data)
 	}
 	if (!check_char(data))
 	{
-		ft_putstr_fd("Error\nWrong character used for map.", 2);
+		ft_putstr_fd("Error\nWrong characters used for map.", 2);
 		ft_putstr_fd("Use only 0,1,C,E,P.\n", 2);
+		free_map(data);
+		exit(EXIT_FAILURE);
+	}
+	if (!check_wall(data))
+	{
+		ft_putstr_fd("Error\nMap walls are misplaced.\n", 2);
 		free_map(data);
 		exit(EXIT_FAILURE);
 	}
@@ -78,5 +114,6 @@ void	check_map(t_data *data, char **argv)
 	}
 	parse_map(fd, data);
 	check_map_conditions(data);
+	check_map_conditions2(data);
 }
 	
