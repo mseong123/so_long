@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 13:45:03 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/12 13:50:16 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		check_map(&data, argv);
+		free_map(&data);
 		return (EXIT_SUCCESS);
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:42:29 by melee             #+#    #+#             */
-/*   Updated: 2023/06/12 08:12:33 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/12 13:39:16 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,12 @@ static void check_map_conditions2(t_data *data)
 		free_map(data);
 		exit(EXIT_FAILURE);
 	}
-	check_path(data);
-
-
+	if (!check_path(data))
+	{
+		ft_putstr_fd("Error\nPlayer(P) has no valid path to Exit(E).\n", 2);
+		free_map(data);
+		exit(EXIT_FAILURE);
+	}
 }
 
 static void check_map_conditions(t_data *data)
