@@ -1,4 +1,4 @@
-SRCS_NAME = so_long free check_map check_map_utils1 check_map_utils2 check_map_utils3
+SRCS_NAME = so_long free check_map check_map_utils1 check_map_utils2 check_map_utils3 put_image movement
 
 SRCS = $(SRCS_NAME:=.c)
 
@@ -15,7 +15,7 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	make bonus -C ./libft
-	cc -g $(OBJECTS) -o $(NAME) -g -L ./minilibx_opengl_20191021 -lmlx -L ./libft -lft -framework OpenGL -framework AppKit
+	cc -fsanitize=address -g $(OBJECTS) -o $(NAME) -g -L ./minilibx_opengl_20191021 -lmlx -L ./libft -lft -framework OpenGL -framework AppKit
 
 clean:
 	make clean -C ./libft
