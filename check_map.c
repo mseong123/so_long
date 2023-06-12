@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:42:29 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 16:48:32 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/12 08:12:33 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static void check_map_conditions2(t_data *data)
 		free_map(data);
 		exit(EXIT_FAILURE);
 	}
+	check_path(data);
 
 
 }

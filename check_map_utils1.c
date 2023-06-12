@@ -34,7 +34,7 @@ int	check_rectangular(t_data *data)
 	return (1);
 }
 
-static int	get_row(t_data *data)
+int	get_row(t_data *data)
 {
 	int row;
 
@@ -44,7 +44,7 @@ static int	get_row(t_data *data)
 	return (row);
 }
 
-static int	get_column(t_data *data)
+int	get_column(t_data *data)
 {
 	int column;
 

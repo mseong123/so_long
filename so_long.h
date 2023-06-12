@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:47:55 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 16:47:02 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/12 10:43:57 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ typedef struct	s_data
 	char	**map;
 }		t_data;
 
+typedef struct	s_cell
+{
+	int	x;
+	int y;
+}		t_cell;
+
 void	free_map(t_data *data);
 void	check_map(t_data *data, char **argv);
 int		check_rectangular(t_data *data);
@@ -39,7 +45,10 @@ int		check_min_row_column(t_data *data);
 int		check_wall(t_data *data);
 int		check_exit(t_data *data);
 int		check_start(t_data *data);
+int		get_row(t_data *data);
+int		get_column(t_data *data);
 int		check_collectible(t_data *data);
+int		check_path(t_data *data);
 
 
 #endif
