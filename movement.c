@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:17:26 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 17:56:16 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 17:59:48 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	right(t_data *data)
 			exit_game(data);
 		}
 		put_image(data, data->floor, x, y); 
-		data->player->x+= 1;
+		data->player->x += 1;
 		put_image(data, data->floor, x + 1, y); 
 		put_image(data, data->player->right, x + 1, y);
 		data->count_move += 1;
