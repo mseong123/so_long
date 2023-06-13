@@ -6,13 +6,13 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 15:29:52 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 11:59:13 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 16:08:13 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	initialise_image(t_data *data)
+void	init_image(t_data *data)
 {
 	int	width;
 	int	height;
@@ -35,6 +35,28 @@ void	initialise_image(t_data *data)
 	"./sprites/up.xpm", &width, &height);
 	data->player->down = mlx_xpm_file_to_image(data->mlx_ptr, \
 	"./sprites/down.xpm", &width, &height);
+}
+
+void	init_enemy_image(t_data *data)
+{
+	int i;
+	int	width;
+	int	height;
+
+	i = 0;
+	data->enemy->img = malloc(6 * sizeof(void *));
+	while (i < 6)
+		data->enemy->img[i++] = NULL;
+	data->enemy->img[0] = mlx_xpm_file_to_image(data->mlx_ptr, \
+	"./sprites/slime1.xpm", &width, &height);
+	data->enemy->img[1] = mlx_xpm_file_to_image(data->mlx_ptr, \
+	"./sprites/slime2.xpm", &width, &height);
+	data->enemy->img[2] = mlx_xpm_file_to_image(data->mlx_ptr, \
+	"./sprites/slime3.xpm", &width, &height);
+	data->enemy->img[3] = mlx_xpm_file_to_image(data->mlx_ptr, \
+	"./sprites/slime4.xpm", &width, &height);
+	data->enemy->img[4] = mlx_xpm_file_to_image(data->mlx_ptr, \
+	"./sprites/slime5.xpm", &width, &height);
 }
 
 void	put_image(t_data *data, void *image, int j, int i)

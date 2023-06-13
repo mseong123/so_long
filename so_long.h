@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:47:55 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 12:04:42 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 16:46:31 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,22 @@ typedef	struct	s_player
 	int		y;
 }	t_player;
 
+typedef struct	s_enemy
+{
+	void	**img;
+	int		x;
+	int		y;
+	int		frame;
+	int		img_index;
+	int		sign;
+}	t_enemy;
+
 typedef struct	s_data
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
 	t_player	*player;
+	t_enemy		*enemy;
 	void		*floor;
 	void		*exit;
 	void		*exit1;
@@ -48,7 +59,6 @@ typedef struct	s_data
 	int			count_move;
 	int			exit_status;
 }		t_data;
-
 
 void	free_map(t_data *data);
 void	exit_game(t_data *data);
@@ -63,7 +73,8 @@ int		get_row(t_data *data);
 int		get_column(t_data *data);
 int		check_collectible(t_data *data);
 int		check_path(t_data *data);
-void	initialise_image(t_data *data);
+void	init_image(t_data *data);
+void	init_enemy_image(t_data *data);
 void	put_image_to_map(t_data *data);
 void	put_image(t_data *data, void *image, int j, int i);
 void	up(t_data *data);
@@ -72,6 +83,8 @@ void	left(t_data *data);
 void	right(t_data *data);
 void	put_string(t_data *data);
 void	move_collect(t_data *data, int x, int y);
+int		animation(t_data *data);
+void	get_enemy_pos(t_data *data);
 
 
 #endif

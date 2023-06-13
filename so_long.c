@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 14:10:22 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 16:30:35 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	exit_game(t_data *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->mlx_win);
 	free_map(data);
+	free(data->enemy->img);
 	exit(EXIT_SUCCESS);
 }
 
@@ -37,6 +38,7 @@ int	handle_key(int keycode, t_data *data)
 int	handle_destroy(t_data *data)
 {
 	free_map(data);
+	free(data->enemy->img);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
@@ -59,23 +61,29 @@ void	init(t_data *data)
 	}
 	data->count_move = 0;
 	data->exit = 0;
-	initialise_image(data);
-	put_image_to_map(data);	
+	data->enemy->frame = 0;
+	data->enemy->img_index = 0;
+	get_enemy_pos(data);
+	init_image(data);
+	init_enemy_image(data);
+	put_image_to_map(data);
 }
-
 
 int	main(int argc, char **argv)
 {
 	t_data		data;
 	t_player	player;
+	t_enemy		enemy;
 	
 	if (argc == 2)
 	{
 		check_map(&data, argv);
 		data.player = &player;
+		data.enemy = &enemy;
 		init(&data);
 		mlx_hook(data.mlx_win, KEYPRESS, 0, handle_key, &data);
 		mlx_hook(data.mlx_win, DESTROY, 0, handle_destroy, &data);
+		mlx_loop_hook(data.mlx_ptr, animation, &data);
 		mlx_loop(data.mlx_ptr);
 		return (EXIT_SUCCESS);
 	}

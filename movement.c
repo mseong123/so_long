@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:17:26 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 14:17:09 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 17:56:16 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ void	up(t_data *data)
 	y = data->player->y;
 	if (data->map[y - 1][x] != '1' && data->map[y - 1][x] != 'E')
 	{
+		if (x == data->enemy->x && y - 1 == data->enemy->y)
+		{
+			ft_putstr_fd("YOU LOSE!\n", 1);
+			exit_game(data);
+		}
 		put_image(data, data->floor, x, y);
 		data->player->y -= 1;
 		put_image(data, data->floor, x, y - 1); 
@@ -55,7 +60,12 @@ void	down(t_data *data)
 	x = data->player->x;
 	y = data->player->y;
 	if (data->map[y + 1][x] != '1' && data->map[y + 1][x] != 'E')
-	{
+	{	
+		if (x == data->enemy->x && y + 1 == data->enemy->y)
+		{
+			ft_putstr_fd("YOU LOSE!\n", 1);
+			exit_game(data);
+		}
 		put_image(data, data->floor, x, y); 
 		data->player->y += 1;
 		put_image(data, data->floor, x, y + 1); 
@@ -78,6 +88,11 @@ void	left(t_data *data)
 	y = data->player->y;
 	if (data->map[y][x - 1] != '1' && data->map[y][x - 1] != 'E')
 	{
+		if (x - 1 == data->enemy->x && y == data->enemy->y)
+		{
+			ft_putstr_fd("YOU LOSE!\n", 1);
+			exit_game(data);
+		}
 		put_image(data, data->floor, x, y); 
 		data->player->x -= 1;
 		put_image(data, data->floor, x - 1, y); 
@@ -100,6 +115,11 @@ void	right(t_data *data)
 	y = data->player->y;
 	if (data->map[y][x + 1] != '1' && data->map[y][x + 1] != 'E')
 	{
+		if (x + 1 == data->enemy->x && y == data->enemy->y)
+		{
+			ft_putstr_fd("YOU LOSE!\n", 1);
+			exit_game(data);
+		}
 		put_image(data, data->floor, x, y); 
 		data->player->x+= 1;
 		put_image(data, data->floor, x + 1, y); 
