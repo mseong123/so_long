@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 13:27:35 by melee             #+#    #+#             */
-/*   Updated: 2023/06/09 15:58:18 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 13:54:56 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,19 @@ int	check_rectangular(t_data *data)
 	
 	i = 0;
 	first_column = 0;
-	while (data->map[0] && data->map[0][first_column++])
-		;
+	while (data->map[0] && data->map[0][first_column])
+		first_column++;
 	while (data->map[i])
 	{
 		j = 0;
-		while(data->map[i][j++])
-			;
+		while(data->map[i][j])
+			j++;
 		if (j != first_column)
 		   return (0);	
 		i++;
 	}
+   	if (i == j)
+		return (0);	
 	return (1);
 }
 

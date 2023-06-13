@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 12:04:12 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 14:10:22 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,9 @@ int	handle_key(int keycode, t_data *data)
 int	handle_destroy(t_data *data)
 {
 	free_map(data);
-	//free(data->mlx_ptr);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
-
 
 void	init(t_data *data)
 {

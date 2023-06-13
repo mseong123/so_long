@@ -15,7 +15,7 @@ all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	make bonus -C ./libft
-	cc -fsanitize=address -g $(OBJECTS) -o $(NAME) -g -L ./minilibx_opengl_20191021 -lmlx -L ./libft -lft -framework OpenGL -framework AppKit
+	cc $(OBJECTS) -o $(NAME) -g -L ./minilibx_opengl_20191021 -lmlx -L ./libft -lft -framework OpenGL -framework AppKit
 
 clean:
 	make clean -C ./libft

@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:17:26 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 12:11:50 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 14:17:09 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void	put_string(t_data *data)
 
 	str = ft_itoa(data->count_move);
 	put_image(data, data->wall, 2, 0);
+	ft_putstr_fd("Moves: ", 1);
+	ft_putstr_fd(str, 1);
+	ft_putstr_fd("\n", 1);
 	mlx_string_put(data->mlx_ptr, data->mlx_win, 100, 25, 0xffffff, str);
 	free(str);
 }

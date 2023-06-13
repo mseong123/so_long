@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 10:37:21 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 11:59:40 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 13:03:20 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ void	move_collect(t_data *data, int x, int y)
 	{
 		put_image(data, data->exit1, j, i);
 		data->exit_status = 1;
-	}	
+	}
 }

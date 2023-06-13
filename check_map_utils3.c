@@ -12,9 +12,34 @@
 
 #include "so_long.h"
 
+/*
+void	print_check(t_data *data, char **map_check)
+{
+	int i = 0;
+	int row = get_row(data);
+	int	j = 0;
+	int column = get_column(data);
+
+	while (i < row)
+	{
+		j = 0;
+		while (j < column)
+		{
+			if (map_check[i][j] == '\0')
+				printf("0");
+			else 
+				printf("%c",map_check[i][j]);
+			j++;
+		}
+		printf("\n");
+	i++;	
+	}
+}
+*/
+
 static int	check_adj_exit(t_data *data, int y, int x)
 {
-	if (data->map[y + 1][x] == 'E' || data->map[y - 1][x] == 'E' || data->map[y][x -1] == 'E'
+	if (data->map[y + 1][x] == 'E' || data->map[y - 1][x] == 'E' || data->map[y][x - 1] == 'E'
 			|| data->map[y][x + 1] == 'E')
 		return (1);
 	return (0);
@@ -61,30 +86,6 @@ static void	get_P(t_data *data, int curr[2])
 		curr[0]++;
 	}
 }
-/*
-void	print_check(t_data *data, char **map_check)
-{
-	int i = 0;
-	int row = get_row(data);
-	int	j = 0;
-	int column = get_column(data);
-
-	while (i < row)
-	{
-		j = 0;
-		while (j < column)
-		{
-			if (map_check[i][j] == '\0')
-				printf("0");
-			else 
-				printf("%c",map_check[i][j]);
-			j++;
-		}
-		printf("\n");
-	i++;	
-	}
-}
-*/
 
 int	check_path(t_data *data)
 {
@@ -108,5 +109,4 @@ int	check_path(t_data *data)
 		free(map_cell_checker[i++]);
 	free(map_cell_checker);
 	return (res);
-	
 }
