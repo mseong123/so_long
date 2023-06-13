@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:47:55 by melee             #+#    #+#             */
-/*   Updated: 2023/06/12 18:41:32 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 12:04:42 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,19 @@ typedef struct	s_data
 	void		*mlx_ptr;
 	void		*mlx_win;
 	t_player	*player;
-	void		*space;
+	void		*floor;
 	void		*exit;
+	void		*exit1;
 	void		*wall;
 	void		*collect;
 	char		**map;
+	int			count_move;
+	int			exit_status;
 }		t_data;
 
 
 void	free_map(t_data *data);
+void	exit_game(t_data *data);
 void	check_map(t_data *data, char **argv);
 int		check_rectangular(t_data *data);
 int		check_char(t_data *data);
@@ -61,10 +65,13 @@ int		check_collectible(t_data *data);
 int		check_path(t_data *data);
 void	initialise_image(t_data *data);
 void	put_image_to_map(t_data *data);
+void	put_image(t_data *data, void *image, int j, int i);
 void	up(t_data *data);
 void	down(t_data *data);
 void	left(t_data *data);
 void	right(t_data *data);
+void	put_string(t_data *data);
+void	move_collect(t_data *data, int x, int y);
 
 
 #endif

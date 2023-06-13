@@ -6,11 +6,18 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/12 18:41:19 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/13 12:04:12 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	exit_game(t_data *data)
+{
+	mlx_destroy_window(data->mlx_ptr, data->mlx_win);
+	free_map(data);
+	exit(EXIT_SUCCESS);
+}
 
 int	handle_key(int keycode, t_data *data)
 {
@@ -19,22 +26,16 @@ int	handle_key(int keycode, t_data *data)
 	else if (keycode == 0 || keycode == 123)
 		left(data);
 	else if (keycode == 2 || keycode == 124)
-		right(data);	
+		right(data);
 	else if (keycode == 1 || keycode == 125)
 		down(data);	
 	else if (keycode == 53)
-	{
-		mlx_destroy_window(data->mlx_ptr, data->mlx_win);
-		free_map(data);
-		//free(data->mlx_ptr);
-		exit(EXIT_SUCCESS);
-	}
+		exit_game(data);
 	return (0);	
 }
 
 int	handle_destroy(t_data *data)
 {
-	(void)data;
 	free_map(data);
 	//free(data->mlx_ptr);
 	exit(EXIT_SUCCESS);
@@ -58,12 +59,10 @@ void	init(t_data *data)
 		perror("so_long");
 		exit(EXIT_FAILURE);
 	}
+	data->count_move = 0;
+	data->exit = 0;
 	initialise_image(data);
-	put_image_to_map(data);
-
-	
-	
-		
+	put_image_to_map(data);	
 }
 
 

@@ -1,4 +1,4 @@
-SRCS_NAME = so_long free check_map check_map_utils1 check_map_utils2 check_map_utils3 put_image movement
+SRCS_NAME = so_long free check_map check_map_utils1 check_map_utils2 check_map_utils3 put_image movement movement_utils
 
 SRCS = $(SRCS_NAME:=.c)
 
