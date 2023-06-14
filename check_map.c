@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:42:29 by melee             #+#    #+#             */
-/*   Updated: 2023/06/14 08:38:27 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 09:28:45 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	check_map_conditions2(t_data *data)
 	}
 	if (!check_collectible(data))
 	{
-		ft_putstr_fd("Error\nMap must contain at least one (C)", 2);
+		ft_putstr_fd("Error\nMap must contain at least one (C).\n", 2);
 		free_map(data);
 		exit(EXIT_FAILURE);
 	}
