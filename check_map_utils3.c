@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 08:00:37 by melee             #+#    #+#             */
-/*   Updated: 2023/06/14 08:47:53 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 09:01:09 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,12 @@ int	check_path(t_data *data)
 
 	i = 0;
 	map_cell_checker = ft_calloc(get_row(data) + 1, sizeof(char *));
-	while (i < row)
+	while (i < get_row(data))
 		map_cell_checker[i++] = ft_calloc(get_column(data) + 1, sizeof(char));
 	get_p(data, pos_p);
 	res = recursive(data, map_cell_checker, pos_p[0], pos_p[1]);
 	i = 0;
-	while (i < row + 1)
+	while (i < get_row(data) + 1)
 		free(map_cell_checker[i++]);
 	free(map_cell_checker);
 	return (res);
