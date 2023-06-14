@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:41:04 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 16:30:35 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 08:53:01 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ int	handle_key(int keycode, t_data *data)
 	else if (keycode == 2 || keycode == 124)
 		right(data);
 	else if (keycode == 1 || keycode == 125)
-		down(data);	
+		down(data);
 	else if (keycode == 53)
 		exit_game(data);
-	return (0);	
+	return (0);
 }
 
 int	handle_destroy(t_data *data)
@@ -53,14 +53,14 @@ void	init(t_data *data)
 	}
 	data->mlx_win = mlx_new_window(data->mlx_ptr, \
 	get_column(data) * PIX_W, get_row(data) * PIX_H, \
-    "so_long");
+	"so_long");
 	if (!data->mlx_win)
 	{
 		perror("so_long");
 		exit(EXIT_FAILURE);
 	}
 	data->count_move = 0;
-	data->exit = 0;
+	data->exit_status = 0;
 	data->enemy->frame = 0;
 	data->enemy->img_index = 0;
 	get_enemy_pos(data);
@@ -74,7 +74,7 @@ int	main(int argc, char **argv)
 	t_data		data;
 	t_player	player;
 	t_enemy		enemy;
-	
+
 	if (argc == 2)
 	{
 		check_map(&data, argv);

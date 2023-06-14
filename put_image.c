@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 15:29:52 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 16:08:13 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 08:51:56 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	init_image(t_data *data)
 
 void	init_enemy_image(t_data *data)
 {
-	int i;
+	int	i;
 	int	width;
 	int	height;
 
@@ -61,7 +61,7 @@ void	init_enemy_image(t_data *data)
 
 void	put_image(t_data *data, void *image, int j, int i)
 {
-	mlx_put_image_to_window(data->mlx_ptr, data->mlx_win, image,\
+	mlx_put_image_to_window(data->mlx_ptr, data->mlx_win, image, \
 	j * PIX_W, i * PIX_H);
 }
 
@@ -98,8 +98,8 @@ void	put_image_to_map(t_data *data)
 				put_image(data, data->wall, j, i);
 			else if (data->map[i][j] == '0')
 				put_image(data, data->floor, j, i);
-					j++;
 			put_image_to_map2(data, j, i);
+			j++;
 		}
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 13:47:55 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 16:46:31 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 08:54:12 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-typedef	struct	s_player
+typedef struct s_player
 {
 	void	*up;
 	void	*down;
@@ -34,7 +34,7 @@ typedef	struct	s_player
 	int		y;
 }	t_player;
 
-typedef struct	s_enemy
+typedef struct s_enemy
 {
 	void	**img;
 	int		x;
@@ -44,7 +44,7 @@ typedef struct	s_enemy
 	int		sign;
 }	t_enemy;
 
-typedef struct	s_data
+typedef struct s_data
 {
 	void		*mlx_ptr;
 	void		*mlx_win;
@@ -85,6 +85,5 @@ void	put_string(t_data *data);
 void	move_collect(t_data *data, int x, int y);
 int		animation(t_data *data);
 void	get_enemy_pos(t_data *data);
-
 
 #endif

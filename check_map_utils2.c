@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 15:34:49 by melee             #+#    #+#             */
-/*   Updated: 2023/06/12 08:00:20 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 08:42:25 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	check_char(t_data *data)
 		j = 0;
 		while (data->map[i][j])
 		{
-			if (data->map[i][j] != '0' && data->map[i][j] != '1' 
-				&& data->map[i][j] != 'C' && data->map[i][j] != 'E' 
+			if (data->map[i][j] != '0' && data->map[i][j] != '1'
+				&& data->map[i][j] != 'C' && data->map[i][j] != 'E'
 				&& data->map[i][j] != 'P')
 				return (0);
 			j++;

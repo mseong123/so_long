@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:42:29 by melee             #+#    #+#             */
-/*   Updated: 2023/06/12 16:30:48 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 08:38:27 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,23 @@ static void	check_suffix(char **argv)
 	}
 }
 
-static void check_map_conditions2(t_data *data)
+static void	check_map_conditions2(t_data *data)
 {
 	if (!check_exit(data))
 	{
-		ft_putstr_fd("Error\nMap must contain only one Exit(E).\n", 2);
+		ft_putstr_fd("Error\nMap must contain only one (E).\n", 2);
 		free_map(data);
 		exit(EXIT_FAILURE);
 	}
 	if (!check_start(data))
 	{
-		ft_putstr_fd("Error\nMap must contain only one Starting Position(P).\n", 2);
+		ft_putstr_fd("Error\nMap must contain only one (P).\n", 2);
 		free_map(data);
 		exit(EXIT_FAILURE);
 	}
 	if (!check_collectible(data))
 	{
-		ft_putstr_fd("Error\nMap must contain at least one Collectible(C).\n", 2);
+		ft_putstr_fd("Error\nMap must contain at least one (C)", 2);
 		free_map(data);
 		exit(EXIT_FAILURE);
 	}
@@ -52,7 +52,7 @@ static void check_map_conditions2(t_data *data)
 	}
 }
 
-static void check_map_conditions(t_data *data)
+static void	check_map_conditions(t_data *data)
 {
 	if (!check_min_row_column(data))
 	{
@@ -81,7 +81,7 @@ static void check_map_conditions(t_data *data)
 	}
 }
 
-static void parse_map(int fd, t_data *data)
+static void	parse_map(int fd, t_data *data)
 {
 	char	*line;
 	char	*file;
@@ -95,7 +95,7 @@ static void parse_map(int fd, t_data *data)
 		file = ft_strjoin(file, line);
 		free(line);
 		free(temp);
-		line = get_next_line(fd);	
+		line = get_next_line(fd);
 	}
 	free(line);
 	data->map = ft_split(file, '\n');
@@ -111,7 +111,7 @@ void	check_map(t_data *data, char **argv)
 	path = ft_strjoin("./maps/", argv[1]);
 	fd = open(path, O_RDONLY);
 	free(path);
-   	if (fd == -1)
+	if (fd == -1)
 	{
 		perror("so_long");
 		exit(EXIT_FAILURE);
@@ -119,5 +119,4 @@ void	check_map(t_data *data, char **argv)
 	parse_map(fd, data);
 	check_map_conditions(data);
 	check_map_conditions2(data);
-}
-	
+}	

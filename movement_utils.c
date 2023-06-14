@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 10:37:21 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 13:03:20 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 08:51:07 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	move_collect(t_data *data, int x, int y)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
-	i = 0;	
+	i = 0;
 	data->map[y][x] = '0';
 	while (data->map[i])
 	{
@@ -25,11 +25,11 @@ void	move_collect(t_data *data, int x, int y)
 		while (data->map[i][j])
 		{
 			if (data->map[i][j] == 'E')
-				break;
+				break ;
 			j++;
 		}
 		if (data->map[i][j] == 'E')
-			break;
+			break ;
 		i++;
 	}
 	if (!check_collectible(data))

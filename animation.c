@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 14:41:31 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 18:34:00 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 08:33:40 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int	animation(t_data *data)
 	{
 		if (data->enemy->frame == 2500)
 			data->enemy->frame = 0;
-		if (data->enemy->x == data->player->x && data->enemy->y == data->player->y)
+		if (data->enemy->x == data->player->x
+			&& data->enemy->y == data->player->y)
 			exit_game(data);
 		if (data->enemy->img_index == 0 && data->enemy->sign == 1
 			&& data->map[data->enemy->y][data->enemy->x - 1] == '0')

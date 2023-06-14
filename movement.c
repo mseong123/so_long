@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 17:17:26 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 17:59:48 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 08:50:12 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	put_string(t_data *data)
 {
-	char *str;
+	char	*str;
 
 	str = ft_itoa(data->count_move);
 	put_image(data, data->wall, 2, 0);
@@ -41,7 +41,7 @@ void	up(t_data *data)
 		}
 		put_image(data, data->floor, x, y);
 		data->player->y -= 1;
-		put_image(data, data->floor, x, y - 1); 
+		put_image(data, data->floor, x, y - 1);
 		put_image(data, data->player->up, x, y - 1);
 		data->count_move += 1;
 		put_string(data);
@@ -66,9 +66,9 @@ void	down(t_data *data)
 			ft_putstr_fd("YOU LOSE!\n", 1);
 			exit_game(data);
 		}
-		put_image(data, data->floor, x, y); 
+		put_image(data, data->floor, x, y);
 		data->player->y += 1;
-		put_image(data, data->floor, x, y + 1); 
+		put_image(data, data->floor, x, y + 1);
 		put_image(data, data->player->down, x, y + 1);
 		data->count_move += 1;
 		put_string(data);
@@ -93,10 +93,10 @@ void	left(t_data *data)
 			ft_putstr_fd("YOU LOSE!\n", 1);
 			exit_game(data);
 		}
-		put_image(data, data->floor, x, y); 
+		put_image(data, data->floor, x, y);
 		data->player->x -= 1;
-		put_image(data, data->floor, x - 1, y); 
-		put_image(data, data->player->left, x - 1, y);	
+		put_image(data, data->floor, x - 1, y);
+		put_image(data, data->player->left, x - 1, y);
 		data->count_move += 1;
 		put_string(data);
 		if (data->map[y][x - 1] == 'C')
@@ -120,9 +120,9 @@ void	right(t_data *data)
 			ft_putstr_fd("YOU LOSE!\n", 1);
 			exit_game(data);
 		}
-		put_image(data, data->floor, x, y); 
+		put_image(data, data->floor, x, y);
 		data->player->x += 1;
-		put_image(data, data->floor, x + 1, y); 
+		put_image(data, data->floor, x + 1, y);
 		put_image(data, data->player->right, x + 1, y);
 		data->count_move += 1;
 		put_string(data);
@@ -132,5 +132,3 @@ void	right(t_data *data)
 	else if (data->map[y][x + 1] == 'E' && data->exit_status)
 		exit_game(data);
 }
-
-

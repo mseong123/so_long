@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 09:03:51 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 15:03:46 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 08:48:16 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	free_map(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (data->map[i])
 		free(data->map[i++]);
 	free(data->map);
 }
-

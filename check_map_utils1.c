@@ -6,7 +6,7 @@
 /*   By: melee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 13:27:35 by melee             #+#    #+#             */
-/*   Updated: 2023/06/13 13:54:56 by melee            ###   ########.fr       */
+/*   Updated: 2023/06/14 08:41:55 by melee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	check_rectangular(t_data *data)
 {
-	int i;
-	int j;
-	int first_column;
-	
+	int	i;
+	int	j;
+	int	first_column;
+
 	i = 0;
 	first_column = 0;
 	while (data->map[0] && data->map[0][first_column])
@@ -25,20 +25,20 @@ int	check_rectangular(t_data *data)
 	while (data->map[i])
 	{
 		j = 0;
-		while(data->map[i][j])
+		while (data->map[i][j])
 			j++;
 		if (j != first_column)
-		   return (0);	
+			return (0);
 		i++;
 	}
-   	if (i == j)
-		return (0);	
+	if (i == j)
+		return (0);
 	return (1);
 }
 
 int	get_row(t_data *data)
 {
-	int row;
+	int	row;
 
 	row = 0;
 	while (data->map[row])
@@ -48,7 +48,7 @@ int	get_row(t_data *data)
 
 int	get_column(t_data *data)
 {
-	int column;
+	int	column;
 
 	column = 0;
 	while (data->map[0] && data->map[0][column])
@@ -59,7 +59,7 @@ int	get_column(t_data *data)
 int	check_min_row_column(t_data *data)
 {
 	int	row;
-	int column;
+	int	column;
 
 	row = get_row(data);
 	column = get_column(data);
@@ -94,4 +94,3 @@ int	check_wall(t_data *data)
 			return (0);
 	return (1);
 }
-
