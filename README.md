@@ -31,8 +31,6 @@ git clone https://github.com/mseong123/so_long.git
 
 ## Compile and Run
 
-The program is split into a mandatory part and a bonus part. The bonus part adds wall collision, a rotating minimap, a (Sonic!) sprite and the ability to rotate the view by moving the mouse.
-
 To compile the mandatory part, `cd` into the cloned directory and:
 
 ```
@@ -55,5 +53,5 @@ Controls for movement are:
 
 ## Useful Resources
 - MinilibX tutorial : [harm-smits.github.io](https://harm-smits.github.io/42docs/libs/minilibx.html)
-- [Subject PDF](https://github.com/mseong123/so_long/blob/main/en.subject.pdf)
+- [Subject PDF](https://github.com/mseong123/so_long/blob/master/en.subject.pdf)
 
