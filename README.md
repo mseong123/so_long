@@ -50,6 +50,7 @@ Controls for movement are:
 - `S`: move backward
 - `A`: move left
 - `D`: move right
+- `ESC` : quit the program
 
 ## Useful Resources
 - MinilibX tutorial : [harm-smits.github.io](https://harm-smits.github.io/42docs/libs/minilibx.html)
