@@ -2,7 +2,7 @@
 
 *And thanks for all the fish! 🐟*
 
-![so_long.gif](https://github.com/mseong123/so_long/blob/master/maps/so_long.gif)
+![so_long.gif](https://github.com/mseong123/so_long/blob/bdeb49e30063efe5548f4ffa3b4a925bb54f8af5/maps/so_long.gif)
 
 ## Introduction
 This project is a very small 2D game. It is built to make you work with textures, sprites and it incorporates some very basic gameplay elements. It is built using [MiniLibX library](https://github.com/42Paris/minilibx-linux) and C Language. The game we choose must follow a set of rules. The executable ``so_long`` will receive a map as the only argument, and this map will have a ``.ber`` filetype.
